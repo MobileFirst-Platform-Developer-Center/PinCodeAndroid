@@ -29,7 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        WLClient.createInstance(this);
+        WLClient client = WLClient.createInstance(this);
+        client.registerChallengeHandler(new PinCodeChallengeHandler("PinCodeAttempts", this));
+
 
         getBalanceBtn = (Button) findViewById(R.id.getBalance);
         resultTxt = (TextView) findViewById(R.id.result);
