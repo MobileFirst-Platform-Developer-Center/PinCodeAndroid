@@ -39,7 +39,12 @@ public class PinCodeChallengeHandler extends WLChallengeHandler{
     public void handleFailure(JSONObject jsonObject) {
         Log.d("Failure", jsonObject.toString());
         try {
-            alertError(jsonObject.getString("failure"));
+            if (!jsonObject.isNull("failure")) {
+                alertError(jsonObject.getString("failure"));
+            } else {
+                alertError("Unknown error");
+            }
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -49,102 +49,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PinCodeChallengeHandler.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PinCodeChallengeHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/sample/com/pincodeandroid/PinCodeChallengeHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="56" selection-start-line="49" selection-start-column="56" selection-end-line="49" selection-end-column="56" />
+            <state vertical-scroll-proportion="1.0393701">
+              <caret line="44" column="44" selection-start-line="44" selection-start-column="44" selection-end-line="44" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#884#885#0" expanded="true" />
                 <element signature="e#939#940#0" expanded="true" />
-                <element signature="e#1855#3227#0" expanded="true" />
-                <element signature="e#2354#2859#0" expanded="true" />
-                <element signature="e#2858#2859#0" expanded="true" />
-                <element signature="e#2914#3115#0" expanded="true" />
-                <element signature="e#3114#3115#0" expanded="true" />
-                <element signature="e#3226#3227#0" expanded="true" />
-                <element signature="e#3345#3936#0" expanded="true" />
-                <element signature="e#3621#3824#0" expanded="true" />
-                <element signature="e#3823#3824#0" expanded="true" />
-                <element signature="e#3935#3936#0" expanded="true" />
+                <element signature="e#1989#3361#0" expanded="true" />
+                <element signature="e#2488#2993#0" expanded="true" />
+                <element signature="e#2992#2993#0" expanded="true" />
+                <element signature="e#3048#3249#0" expanded="true" />
+                <element signature="e#3248#3249#0" expanded="true" />
+                <element signature="e#3360#3361#0" expanded="true" />
+                <element signature="e#3479#4070#0" expanded="true" />
+                <element signature="e#3755#3958#0" expanded="true" />
+                <element signature="e#3957#3958#0" expanded="true" />
+                <element signature="e#4069#4070#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WLChallengeHandler.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.ibm.mobile.foundation/ibmmobilefirstplatformfoundation/8.0.Beta1-SNAPSHOT/jars/classes.jar!/com/worklight/wlclient/api/challengehandler/WLChallengeHandler.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.7777777">
-              <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseChallengeHandler.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.ibm.mobile.foundation/ibmmobilefirstplatformfoundation/8.0.Beta1-SNAPSHOT/jars/classes.jar!/com/worklight/wlclient/api/challengehandler/BaseChallengeHandler.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.666666">
-              <caret line="43" column="32" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChallengeHandler.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.ibm.mobile.foundation/ibmmobilefirstplatformfoundation/8.0.Beta1-SNAPSHOT/jars/classes.jar!/com/worklight/wlclient/api/challengehandler/ChallengeHandler.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="50" column="91" selection-start-line="50" selection-start-column="74" selection-end-line="50" selection-end-column="91" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/sample/com/pincodeandroid/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6614173">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2270#2382#0" expanded="true" />
-                <element signature="e#2381#2382#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
-                <element signature="e#476#494#0" expanded="true" />
+                <element signature="e#2238#2350#0" expanded="true" />
+                <element signature="e#2349#2350#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mfpclient.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/assets/mfpclient.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -1712,10 +1649,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/sample/com/pincodeandroid/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/assets/mfpclient.properties" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/sample/com/pincodeandroid/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/sample/com/pincodeandroid/PinCodeChallengeHandler.java" />
       </list>
     </option>
@@ -2284,16 +2221,16 @@
             <element signature="imports" expanded="true" />
             <element signature="e#884#885#0" expanded="true" />
             <element signature="e#939#940#0" expanded="true" />
-            <element signature="e#1855#3227#0" expanded="true" />
-            <element signature="e#2354#2859#0" expanded="true" />
-            <element signature="e#2858#2859#0" expanded="true" />
-            <element signature="e#2914#3115#0" expanded="true" />
-            <element signature="e#3114#3115#0" expanded="true" />
-            <element signature="e#3226#3227#0" expanded="true" />
-            <element signature="e#3345#3936#0" expanded="true" />
-            <element signature="e#3621#3824#0" expanded="true" />
-            <element signature="e#3823#3824#0" expanded="true" />
-            <element signature="e#3935#3936#0" expanded="true" />
+            <element signature="e#1989#3361#0" expanded="true" />
+            <element signature="e#2488#2993#0" expanded="true" />
+            <element signature="e#2992#2993#0" expanded="true" />
+            <element signature="e#3048#3249#0" expanded="true" />
+            <element signature="e#3248#3249#0" expanded="true" />
+            <element signature="e#3360#3361#0" expanded="true" />
+            <element signature="e#3479#4070#0" expanded="true" />
+            <element signature="e#3755#3958#0" expanded="true" />
+            <element signature="e#3957#3958#0" expanded="true" />
+            <element signature="e#4069#4070#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2335,9 +2272,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2270#2382#0" expanded="true" />
-            <element signature="e#2381#2382#0" expanded="true" />
+            <element signature="e#2238#2350#0" expanded="true" />
+            <element signature="e#2349#2350#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2377,16 +2313,16 @@
             <element signature="imports" expanded="true" />
             <element signature="e#884#885#0" expanded="true" />
             <element signature="e#939#940#0" expanded="true" />
-            <element signature="e#1855#3227#0" expanded="true" />
-            <element signature="e#2354#2859#0" expanded="true" />
-            <element signature="e#2858#2859#0" expanded="true" />
-            <element signature="e#2914#3115#0" expanded="true" />
-            <element signature="e#3114#3115#0" expanded="true" />
-            <element signature="e#3226#3227#0" expanded="true" />
-            <element signature="e#3345#3936#0" expanded="true" />
-            <element signature="e#3621#3824#0" expanded="true" />
-            <element signature="e#3823#3824#0" expanded="true" />
-            <element signature="e#3935#3936#0" expanded="true" />
+            <element signature="e#1989#3361#0" expanded="true" />
+            <element signature="e#2488#2993#0" expanded="true" />
+            <element signature="e#2992#2993#0" expanded="true" />
+            <element signature="e#3048#3249#0" expanded="true" />
+            <element signature="e#3248#3249#0" expanded="true" />
+            <element signature="e#3360#3361#0" expanded="true" />
+            <element signature="e#3479#4070#0" expanded="true" />
+            <element signature="e#3755#3958#0" expanded="true" />
+            <element signature="e#3957#3958#0" expanded="true" />
+            <element signature="e#4069#4070#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2420,9 +2356,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="84" selection-start-line="32" selection-start-column="69" selection-end-line="32" selection-end-column="84" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2270#2382#0" expanded="true" />
-            <element signature="e#2381#2382#0" expanded="true" />
+            <element signature="e#2238#2350#0" expanded="true" />
+            <element signature="e#2349#2350#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2462,16 +2397,16 @@
             <element signature="imports" expanded="true" />
             <element signature="e#884#885#0" expanded="true" />
             <element signature="e#939#940#0" expanded="true" />
-            <element signature="e#1855#3227#0" expanded="true" />
-            <element signature="e#2354#2859#0" expanded="true" />
-            <element signature="e#2858#2859#0" expanded="true" />
-            <element signature="e#2914#3115#0" expanded="true" />
-            <element signature="e#3114#3115#0" expanded="true" />
-            <element signature="e#3226#3227#0" expanded="true" />
-            <element signature="e#3345#3936#0" expanded="true" />
-            <element signature="e#3621#3824#0" expanded="true" />
-            <element signature="e#3823#3824#0" expanded="true" />
-            <element signature="e#3935#3936#0" expanded="true" />
+            <element signature="e#1989#3361#0" expanded="true" />
+            <element signature="e#2488#2993#0" expanded="true" />
+            <element signature="e#2992#2993#0" expanded="true" />
+            <element signature="e#3048#3249#0" expanded="true" />
+            <element signature="e#3248#3249#0" expanded="true" />
+            <element signature="e#3360#3361#0" expanded="true" />
+            <element signature="e#3479#4070#0" expanded="true" />
+            <element signature="e#3755#3958#0" expanded="true" />
+            <element signature="e#3957#3958#0" expanded="true" />
+            <element signature="e#4069#4070#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2505,9 +2440,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="54" column="68" selection-start-line="54" selection-start-column="68" selection-end-line="54" selection-end-column="68" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2270#2382#0" expanded="true" />
-            <element signature="e#2381#2382#0" expanded="true" />
+            <element signature="e#2238#2350#0" expanded="true" />
+            <element signature="e#2349#2350#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2544,9 +2478,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2270#2382#0" expanded="true" />
-            <element signature="e#2381#2382#0" expanded="true" />
+            <element signature="e#2238#2350#0" expanded="true" />
+            <element signature="e#2349#2350#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2583,9 +2516,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2270#2382#0" expanded="true" />
-            <element signature="e#2381#2382#0" expanded="true" />
+            <element signature="e#2238#2350#0" expanded="true" />
+            <element signature="e#2349#2350#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2689,36 +2621,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/sample/com/pincodeandroid/PinCodeChallengeHandler.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/sample/com/pincodeandroid/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="56" selection-start-line="49" selection-start-column="56" selection-end-line="49" selection-end-column="56" />
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#884#885#0" expanded="true" />
-            <element signature="e#939#940#0" expanded="true" />
-            <element signature="e#1855#3227#0" expanded="true" />
-            <element signature="e#2354#2859#0" expanded="true" />
-            <element signature="e#2858#2859#0" expanded="true" />
-            <element signature="e#2914#3115#0" expanded="true" />
-            <element signature="e#3114#3115#0" expanded="true" />
-            <element signature="e#3226#3227#0" expanded="true" />
-            <element signature="e#3345#3936#0" expanded="true" />
-            <element signature="e#3621#3824#0" expanded="true" />
-            <element signature="e#3823#3824#0" expanded="true" />
-            <element signature="e#3935#3936#0" expanded="true" />
+            <element signature="e#2238#2350#0" expanded="true" />
+            <element signature="e#2349#2350#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/sample/com/pincodeandroid/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/sample/com/pincodeandroid/PinCodeChallengeHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6614173">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state vertical-scroll-proportion="1.0393701">
+          <caret line="44" column="44" selection-start-line="44" selection-start-column="44" selection-end-line="44" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2270#2382#0" expanded="true" />
-            <element signature="e#2381#2382#0" expanded="true" />
+            <element signature="e#884#885#0" expanded="true" />
+            <element signature="e#939#940#0" expanded="true" />
+            <element signature="e#1989#3361#0" expanded="true" />
+            <element signature="e#2488#2993#0" expanded="true" />
+            <element signature="e#2992#2993#0" expanded="true" />
+            <element signature="e#3048#3249#0" expanded="true" />
+            <element signature="e#3248#3249#0" expanded="true" />
+            <element signature="e#3360#3361#0" expanded="true" />
+            <element signature="e#3479#4070#0" expanded="true" />
+            <element signature="e#3755#3958#0" expanded="true" />
+            <element signature="e#3957#3958#0" expanded="true" />
+            <element signature="e#4069#4070#0" expanded="true" />
           </folding>
         </state>
       </provider>
