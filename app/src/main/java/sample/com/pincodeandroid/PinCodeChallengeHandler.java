@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.text.InputType;
 import android.util.Log;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -37,15 +38,26 @@ public class PinCodeChallengeHandler extends WLChallengeHandler{
     @Override
     public void handleFailure(JSONObject jsonObject) {
         Log.d("Failure", jsonObject.toString());
+        try {
+            alertError(jsonObject.getString("failure"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 
     @Override
     public void handleChallenge(JSONObject jsonObject) {
-        Log.d("Handle", jsonObject.toString());
-        alertMsg("This data requires a PIN code.");
-
-
+        Log.d("Handle Challenge", jsonObject.toString());
+        try{
+            if (jsonObject.isNull("errorMsg")){
+                alertMsg("This data requires a PIN code.\n Remaining attempts: " + jsonObject.getString("remainingAttempts"));
+            } else {
+                alertMsg(jsonObject.getString("errorMsg") + "\nRemaining attempts: " + jsonObject.getString("remainingAttempts"));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     public void alertMsg(final String msg) {
@@ -53,25 +65,26 @@ public class PinCodeChallengeHandler extends WLChallengeHandler{
             public void run() {
                 final EditText pinCode = new EditText(context);
                 pinCode.setHint("PIN CODE");
+                pinCode.setInputType(InputType.TYPE_CLASS_NUMBER);
+
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setMessage(msg)
                         .setTitle("Protected");
                 builder.setView(pinCode);
                 builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        String json = "{ \"pin\" : 1234 }";
-                        JSONObject pc = null;
+                        JSONObject pinCodeAns = new JSONObject();
                         try {
-                            pc = new JSONObject(json);
+                            pinCodeAns.put("pin", pinCode.getText());
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        _this.submitChallengeAnswer(pc);
+                        submitChallengeAnswer(pinCodeAns);
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-
+                        submitFailure(null);
                     }
                 });
                 AlertDialog dialog = builder.create();
@@ -82,6 +95,29 @@ public class PinCodeChallengeHandler extends WLChallengeHandler{
         context.runOnUiThread(run);
 
     }
+
+
+    public void alertError(final String msg) {
+        Runnable run = new Runnable() {
+            public void run() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setMessage(msg)
+                        .setTitle("Error");
+                builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked OK button
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        };
+
+        context.runOnUiThread(run);
+
+    }
+
+
 
 
 }
