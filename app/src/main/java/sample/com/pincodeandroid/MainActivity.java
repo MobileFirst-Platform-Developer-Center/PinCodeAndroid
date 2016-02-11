@@ -18,7 +18,6 @@ import java.net.URISyntaxException;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button getBalanceBtn;
     private TextView resultTxt;
 
     @Override
@@ -26,13 +25,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
+        PinCodeChallengeHandler pinCodeChallengeHandler = new PinCodeChallengeHandler("PinCodeAttempts", this);
         WLClient client = WLClient.createInstance(this);
-        client.registerChallengeHandler(new PinCodeChallengeHandler("PinCodeAttempts", this));
+        client.registerChallengeHandler(pinCodeChallengeHandler);
 
 
-        getBalanceBtn = (Button) findViewById(R.id.getBalance);
+        Button getBalanceBtn = (Button) findViewById(R.id.getBalance);
         resultTxt = (TextView) findViewById(R.id.result);
 
         getBalanceBtn.setOnClickListener(new View.OnClickListener() {
@@ -44,10 +42,12 @@ public class MainActivity extends AppCompatActivity {
                 } catch (URISyntaxException e) {
                     e.printStackTrace();
                 }
+                assert adapterPath != null;
                 WLResourceRequest request = new WLResourceRequest(adapterPath, WLResourceRequest.GET);
                 request.send(new WLResponseListener() {
                     @Override
                     public void onSuccess(WLResponse wlResponse) {
+                        Log.d("Success", wlResponse.getResponseText());
                         updateTextView("Balance: " + wlResponse.getResponseText());
                     }
 
