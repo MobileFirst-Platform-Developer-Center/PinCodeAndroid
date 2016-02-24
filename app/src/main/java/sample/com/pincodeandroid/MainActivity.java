@@ -47,13 +47,13 @@ public class MainActivity extends AppCompatActivity {
                 request.send(new WLResponseListener() {
                     @Override
                     public void onSuccess(WLResponse wlResponse) {
-                        Log.d("Success", wlResponse.getResponseText());
+                        Log.d("Balance: ", wlResponse.getResponseText());
                         updateTextView("Balance: " + wlResponse.getResponseText());
                     }
 
                     @Override
                     public void onFailure(WLFailResponse wlFailResponse) {
-                        Log.d("Failure", wlFailResponse.getErrorMsg());
+                        Log.d("Failed to get balance: ", wlFailResponse.getErrorMsg());
                         updateTextView("Failed to get balance.");
                     }
                 });
