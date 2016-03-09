@@ -15,11 +15,20 @@
 */
 package sample.com.pincodeandroid;
 
+import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.worklight.wlclient.api.WLClient;
@@ -35,13 +44,21 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView resultTxt;
 
+    private BroadcastReceiver errorReceiver, challengeReceiver;
+
+    private final String ACTIVITY_NAME = "MainActivity";
+
+    private MainActivity _this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        PinCodeChallengeHandler pinCodeChallengeHandler = new PinCodeChallengeHandler("PinCodeAttempts", this);
+        _this = this;
+
         WLClient client = WLClient.createInstance(this);
+        PinCodeChallengeHandler pinCodeChallengeHandler = new PinCodeChallengeHandler("PinCodeAttempts");
         client.registerChallengeHandler(pinCodeChallengeHandler);
 
 
@@ -74,6 +91,22 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+
+        errorReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                Log.d(ACTIVITY_NAME, "errorReceiver");
+                alertError(intent.getStringExtra("errorMsg"));
+            }
+        };
+
+        challengeReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                Log.d(ACTIVITY_NAME, "challengeReceiver");
+                alertMsg(intent.getStringExtra("msg"));
+            }
+        };
     }
 
 
@@ -84,5 +117,79 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         this.runOnUiThread(run);
+    }
+
+    public void alertMsg(final String msg) {
+        Runnable run = new Runnable() {
+            public void run() {
+                final Intent intent = new Intent();
+                final EditText pinCodeTxt = new EditText(_this);
+                pinCodeTxt.setHint("PIN CODE");
+                pinCodeTxt.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(_this);
+                builder.setMessage(msg)
+                        .setTitle("Protected");
+                builder.setView(pinCodeTxt);
+                builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        intent.setAction(Constants.ACTION_SUBMIT_CHALLENGE_ANSWER);
+                        intent.putExtra("pinCodeTxt", pinCodeTxt.getText().toString());
+                        LocalBroadcastManager.getInstance(_this).sendBroadcast(intent);
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        intent.setAction(Constants.ACTION_SUBMIT_FAILURE);
+                        LocalBroadcastManager.getInstance(_this).sendBroadcast(intent);
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.setCanceledOnTouchOutside(false);
+                dialog.show();
+            }
+        };
+
+        _this.runOnUiThread(run);
+
+    }
+
+
+    public void alertError(final String errorMsg) {
+        Runnable run = new Runnable() {
+            public void run() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(_this);
+                builder.setMessage(errorMsg)
+                        .setTitle("Error");
+                builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked OK button
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.setCanceledOnTouchOutside(false);
+                dialog.show();
+            }
+        };
+
+        _this.runOnUiThread(run);
+
+    }
+
+
+    @Override
+    protected void onStart() {
+        Log.d(ACTIVITY_NAME, "onStart");
+        super.onStart();
+        LocalBroadcastManager.getInstance(this).registerReceiver(challengeReceiver, new IntentFilter(Constants.ACTION_ALERT_MSG));
+        LocalBroadcastManager.getInstance(this).registerReceiver(errorReceiver, new IntentFilter(Constants.ACTION_ALERT_ERROR));
+    }
+
+    @Override
+    protected void onStop() {
+        Log.d(ACTIVITY_NAME, "onStop");
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(challengeReceiver);
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(errorReceiver);
+        super.onStop();
     }
 }

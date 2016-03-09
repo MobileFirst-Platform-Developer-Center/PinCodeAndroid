@@ -15,36 +15,60 @@
 */
 package sample.com.pincodeandroid;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.text.InputType;
-import android.util.Log;
-import android.widget.EditText;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
+
+import com.worklight.wlclient.api.WLClient;
 import com.worklight.wlclient.api.challengehandler.WLChallengeHandler;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class PinCodeChallengeHandler extends WLChallengeHandler {
+    private Context context;
+    private LocalBroadcastManager broadcastManager;
 
-    Activity context;
-
-
-    public PinCodeChallengeHandler(String securityCheck, Activity context) {
+    public PinCodeChallengeHandler(String securityCheck) {
         super(securityCheck);
-        this.context = context;
+        context = WLClient.getInstance().getContext();
+        broadcastManager = LocalBroadcastManager.getInstance(context);
+
+        broadcastManager.registerReceiver(new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                try {
+                    submitChallengeAnswer(new JSONObject().put("pin", intent.getStringExtra("pinCodeTxt")));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new IntentFilter(Constants.ACTION_SUBMIT_CHALLENGE_ANSWER));
+
+        broadcastManager.registerReceiver(new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                submitFailure(null);
+            }
+        }, new IntentFilter(Constants.ACTION_SUBMIT_FAILURE));
     }
 
     @Override
     public void handleFailure(JSONObject jsonObject) {
         Log.d("Failure", jsonObject.toString());
+        Intent intent = new Intent();
+        intent.setAction(Constants.ACTION_ALERT_ERROR);
         try {
             if (!jsonObject.isNull("failure")) {
-                alertError(jsonObject.getString("failure"));
+                intent.putExtra("errorMsg", jsonObject.getString("failure"));
+                broadcastManager.sendBroadcast(intent);
             } else {
-                alertError("Unknown error");
+                intent.putExtra("errorMsg", "Unknown error");
+                broadcastManager.sendBroadcast(intent);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -55,72 +79,21 @@ public class PinCodeChallengeHandler extends WLChallengeHandler {
     @Override
     public void handleChallenge(JSONObject jsonObject) {
         Log.d("Handle Challenge", jsonObject.toString());
+        Log.d("Failure", jsonObject.toString());
+        Intent intent = new Intent();
+        intent.setAction(Constants.ACTION_ALERT_MSG);
         try{
             if (jsonObject.isNull("errorMsg")){
-                alertMsg("This data requires a PIN code.\n Remaining attempts: " + jsonObject.getString("remainingAttempts"));
+                intent.putExtra("msg", "This data requires a PIN code.\n Remaining attempts: " + jsonObject.getString("remainingAttempts"));
+                broadcastManager.sendBroadcast(intent);
             } else {
-                alertMsg(jsonObject.getString("errorMsg") + "\nRemaining attempts: " + jsonObject.getString("remainingAttempts"));
+                intent.putExtra("msg", jsonObject.getString("errorMsg") + "\nRemaining attempts: " + jsonObject.getString("remainingAttempts"));
+                broadcastManager.sendBroadcast(intent);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
-
-    public void alertMsg(final String msg) {
-        Runnable run = new Runnable() {
-            public void run() {
-                final EditText pinCodeTxt = new EditText(context);
-                pinCodeTxt.setHint("PIN CODE");
-                pinCodeTxt.setInputType(InputType.TYPE_CLASS_NUMBER);
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setMessage(msg)
-                        .setTitle("Protected");
-                builder.setView(pinCodeTxt);
-                builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        try {
-                            submitChallengeAnswer(new JSONObject().put("pin", pinCodeTxt.getText()));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        submitFailure(null);
-                    }
-                });
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }
-        };
-
-        context.runOnUiThread(run);
-
-    }
-
-
-    public void alertError(final String msg) {
-        Runnable run = new Runnable() {
-            public void run() {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setMessage(msg)
-                        .setTitle("Error");
-                builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User clicked OK button
-                    }
-                });
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }
-        };
-
-        context.runOnUiThread(run);
-
-    }
-
 
 
 
