@@ -47,32 +47,31 @@ public class PinCodeChallengeHandler extends WLChallengeHandler {
                     e.printStackTrace();
                 }
             }
-        }, new IntentFilter(Constants.ACTION_SUBMIT_CHALLENGE_ANSWER));
+        }, new IntentFilter(Constants.ACTION_CHALLENGE_SUBMIT_ANSWER));
 
         broadcastManager.registerReceiver(new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 submitFailure(null);
             }
-        }, new IntentFilter(Constants.ACTION_SUBMIT_FAILURE));
+        }, new IntentFilter(Constants.ACTION_CHALLENGE_CANCEL));
     }
 
     @Override
     public void handleFailure(JSONObject jsonObject) {
         Log.d("Failure", jsonObject.toString());
         Intent intent = new Intent();
-        intent.setAction(Constants.ACTION_ALERT_ERROR);
+        intent.setAction(Constants.ACTION_CHALLENGE_FAILURE);
         try {
             if (!jsonObject.isNull("failure")) {
                 intent.putExtra("errorMsg", jsonObject.getString("failure"));
-                broadcastManager.sendBroadcast(intent);
             } else {
                 intent.putExtra("errorMsg", "Unknown error");
-                broadcastManager.sendBroadcast(intent);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        broadcastManager.sendBroadcast(intent);
     }
 
 
@@ -81,18 +80,18 @@ public class PinCodeChallengeHandler extends WLChallengeHandler {
         Log.d("Handle Challenge", jsonObject.toString());
         Log.d("Failure", jsonObject.toString());
         Intent intent = new Intent();
-        intent.setAction(Constants.ACTION_ALERT_MSG);
+        intent.setAction(Constants.ACTION_CHALLENGE_RECEIVED);
         try{
             if (jsonObject.isNull("errorMsg")){
                 intent.putExtra("msg", "This data requires a PIN code.\n Remaining attempts: " + jsonObject.getString("remainingAttempts"));
-                broadcastManager.sendBroadcast(intent);
             } else {
                 intent.putExtra("msg", jsonObject.getString("errorMsg") + "\nRemaining attempts: " + jsonObject.getString("remainingAttempts"));
-                broadcastManager.sendBroadcast(intent);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        broadcastManager.sendBroadcast(intent);
+
     }
 
 

@@ -16,8 +16,8 @@
 package sample.com.pincodeandroid;
 
 public class Constants {
-    static final String ACTION_ALERT_MSG = "com.sample.pincodeandroid.broadcast.alertMsg";
-    static final String ACTION_ALERT_ERROR = "com.sample.pincodeandroid.broadcast.alertError";
-    static final String ACTION_SUBMIT_CHALLENGE_ANSWER = "com.sample.pincodeandroid.broadcast.submitChallengeAnswer";
-    static final String ACTION_SUBMIT_FAILURE = "com.sample.pincodeandroid.broadcast.submitFailure";
+    static final String ACTION_CHALLENGE_RECEIVED = "com.sample.pincodeandroid.broadcast.challenge.received";
+    static final String ACTION_CHALLENGE_FAILURE = "com.sample.pincodeandroid.broadcast.challenge.failure";
+    static final String ACTION_CHALLENGE_SUBMIT_ANSWER = "com.sample.pincodeandroid.broadcast.challenge.submit.answer";
+    static final String ACTION_CHALLENGE_CANCEL = "com.sample.pincodeandroid.broadcast.challenge.cancel";
 }

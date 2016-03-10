@@ -133,14 +133,14 @@ public class MainActivity extends AppCompatActivity {
                 builder.setView(pinCodeTxt);
                 builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        intent.setAction(Constants.ACTION_SUBMIT_CHALLENGE_ANSWER);
+                        intent.setAction(Constants.ACTION_CHALLENGE_SUBMIT_ANSWER);
                         intent.putExtra("pinCodeTxt", pinCodeTxt.getText().toString());
                         LocalBroadcastManager.getInstance(_this).sendBroadcast(intent);
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        intent.setAction(Constants.ACTION_SUBMIT_FAILURE);
+                        intent.setAction(Constants.ACTION_CHALLENGE_CANCEL);
                         LocalBroadcastManager.getInstance(_this).sendBroadcast(intent);
                     }
                 });
@@ -181,8 +181,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         Log.d(ACTIVITY_NAME, "onStart");
         super.onStart();
-        LocalBroadcastManager.getInstance(this).registerReceiver(challengeReceiver, new IntentFilter(Constants.ACTION_ALERT_MSG));
-        LocalBroadcastManager.getInstance(this).registerReceiver(errorReceiver, new IntentFilter(Constants.ACTION_ALERT_ERROR));
+        LocalBroadcastManager.getInstance(this).registerReceiver(challengeReceiver, new IntentFilter(Constants.ACTION_CHALLENGE_RECEIVED));
+        LocalBroadcastManager.getInstance(this).registerReceiver(errorReceiver, new IntentFilter(Constants.ACTION_CHALLENGE_FAILURE));
     }
 
     @Override
