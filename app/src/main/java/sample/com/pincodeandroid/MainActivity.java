@@ -13,6 +13,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+
 package sample.com.pincodeandroid;
 
 import android.app.AlertDialog;
@@ -56,11 +57,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         _this = this;
-
-        WLClient client = WLClient.createInstance(this);
-        PinCodeChallengeHandler pinCodeChallengeHandler = new PinCodeChallengeHandler("PinCodeAttempts");
-        client.registerChallengeHandler(pinCodeChallengeHandler);
-
 
         Button getBalanceBtn = (Button) findViewById(R.id.getBalance);
         resultTxt = (TextView) findViewById(R.id.result);
