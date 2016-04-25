@@ -19,7 +19,6 @@ package sample.com.pincodeandroid;
 import android.app.Application;
 
 import com.worklight.wlclient.api.WLClient;
-import com.worklight.wlclient.api.challengehandler.WLChallengeHandler;
 
 public class PinCodeApplication extends Application {
     public void onCreate () {
