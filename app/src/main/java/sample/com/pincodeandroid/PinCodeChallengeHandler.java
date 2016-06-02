@@ -24,12 +24,12 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.worklight.wlclient.api.WLClient;
-import com.worklight.wlclient.api.challengehandler.WLChallengeHandler;
+import com.worklight.wlclient.api.challengehandler.SecurityCheckChallengeHandler;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class PinCodeChallengeHandler extends WLChallengeHandler {
+public class PinCodeChallengeHandler extends SecurityCheckChallengeHandler {
     private Context context;
     private LocalBroadcastManager broadcastManager;
 
@@ -52,7 +52,7 @@ public class PinCodeChallengeHandler extends WLChallengeHandler {
         broadcastManager.registerReceiver(new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                submitFailure(null);
+               cancel();
             }
         }, new IntentFilter(Constants.ACTION_CHALLENGE_CANCEL));
     }
